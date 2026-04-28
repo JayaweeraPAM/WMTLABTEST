@@ -15,7 +15,9 @@ const itemsRouter = require('./routes/items');
 app.use('/api/items', itemsRouter);
 
 app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
-
+app.get('/', (req, res) => {
+  res.send('API is running 🚀');
+});
 // Database Connection
 mongoose
   .connect(process.env.MONGO_URI, {
