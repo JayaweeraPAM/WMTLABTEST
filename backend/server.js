@@ -14,6 +14,8 @@ app.use(express.json());
 const itemsRouter = require('./routes/items');
 app.use('/api/items', itemsRouter);
 
+app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
+
 // Database Connection
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -21,6 +23,6 @@ mongoose
   })
   .then(() => {
     console.log('Connected to MongoDB Atlas');
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+   
   })
   .catch((err) => console.error('Error connecting to MongoDB:', err));
